@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>comical ballenbak bubblegum cursor effect</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(30, 30, 30);
+    }
+
+    .cirkel {
+      width: 3rem;
+      height: 3rem;
+      border: solid 2px rgb(255, 255, 255);
+      border-radius: 50%;
+      position: absolute;
+      animation: bounce 1.5s ease;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      25%,
+      50%,
+      75%,
+      100% {
+        transform: translateY(0);
+      }
+
+      12.5% {
+        transform: translateY(-15px);
+      }
+
+      37.5% {
+        transform: translateY(-25px);
+      }
+
+      62.5% {
+        transform: translateY(-15px);
+      }
+
+      87.5% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let kanCirkelTekenen = true;
+
+      function tekenGekleurdeCirkel(event) {
+        if (kanCirkelTekenen) {
+          const kleuren = ['#ffd6e8', '#ffbdda', '#e89898'];
+          const willekeurigeKleur = kleuren[Math.floor(Math.random() * kleuren.length)];
+
+          const cirkel = document.createElement('div');
+          cirkel.className = 'cirkel';
+          cirkel.style.backgroundColor = willekeurigeKleur;
+
+          const x = event.clientX;
+          const y = event.clientY;
+
+          cirkel.style.left = `${x - 5}px`;
+          cirkel.style.top = `${y - 5}px`;
+
+          document.body.appendChild(cirkel);
+
+          kanCirkelTekenen = false;
+
+          // Interfall time
+          setTimeout(() => {
+            document.body.removeChild(cirkel);
+            kanCirkelTekenen = true;
+          }, 1800);
+        }
+      }
+
+      document.addEventListener('mousemove', tekenGekleurdeCirkel);
+    });
+  </script>
+</body>
+
+</html>
