@@ -134,10 +134,10 @@
 <style>
 	@keyframes slideInTop {
 		0% {
-			transform: translateY(-100%);
+			transform: translateX(-100%);
 		}
 		100% {
-			transform: translateY(0);
+			transform: translateX(0);
 		}
 	}
 

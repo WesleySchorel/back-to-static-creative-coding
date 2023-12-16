@@ -23,6 +23,15 @@
 </section>
 
 <style>
+	@keyframes slideInTop {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
 	/* container heading 1 */
 	section {
 		display: flex;
@@ -33,6 +42,7 @@
 		border-top: 12px solid var(--c-pink);
 		margin: 1em 1em;
 		border-radius: 0.5em;
+		animation: slideInTop 1s ease-in-out;
 	}
 
 	.container {
@@ -53,6 +63,7 @@
 	.media img {
 		width: 75%;
 		height: auto;
+		pointer-events: none;
 	}
 
 	.text {
