@@ -65,7 +65,7 @@
 		height: auto;
 		pointer-events: none;
 	}
-
+ 
 	.text {
 		grid-area: text;
 		padding: 1rem;
